@@ -1,0 +1,1 @@
+const credit = 'Photo by Tobias Tullius on Unsplash'
