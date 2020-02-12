@@ -1,6 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router';
+
+import { CredentialContext } from './contexts/CredentialsContext';
+
 
 function App() {
   return (
