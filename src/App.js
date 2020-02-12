@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import { Route } from 'react-router';
 
-import { CredentialsContext } from './contexts/CredentialsContext';
+import { CredentialContext } from './contexts/CredentialsContext';
 
 
 function App() {
@@ -10,11 +10,17 @@ function App() {
     username: '',
     user_id: null
   }
-  const [user, setUser] = useState('emptyUser')
+  const [user, setUser] = useState(emptyUser)
 
+  const estUser = user => {
+    setUser(user)
+  }
 
   return (
-    <div className="App">
+    <div>
+      <CredentialContext.Provider value={{ user, estUser}}>
+
+      </CredentialContext.Provider>
     </div>
   );
 }
