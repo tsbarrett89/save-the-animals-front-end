@@ -9,7 +9,7 @@ const Navigation = () => {
     return (
         <nav>
             <Link>Home</Link>
-            <Link>{user.username.length ? user.username : 'Dashboard'}</Link>
+            <Link>{user.username.length ? user.username: 'Dashboard'}</Link>
             <Link>Campaigns</Link>
         </nav>
     )

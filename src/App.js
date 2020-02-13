@@ -4,7 +4,9 @@ import { Route } from 'react-router';
 
 import { CredentialContext } from './contexts/CredentialsContext';
 
-import Navigation from './components/Navigation.js'
+import Header from './components/Header.js'
+import Navigation from './components/Navigation.js';
+import CampaignList from './components/campaigns/CampaignList';
 
 
 function App() {
@@ -21,7 +23,9 @@ function App() {
   return (
     <div>
       <CredentialContext.Provider value={{ user, estUser}}>
+        <Header />
         <Navigation />
+        <CampaignList />
       </CredentialContext.Provider>
     </div>
   );

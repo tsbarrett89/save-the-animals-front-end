@@ -6,7 +6,7 @@ const CampaignCard = props => {
 
     return (
         <div>
-
+            <h3>{props.campaign.campaign}</h3>
         </div>
     )
 }
