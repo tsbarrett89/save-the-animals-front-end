@@ -7,6 +7,7 @@ import { CredentialContext } from '../contexts/CredentialsContext';
 import menu from '../images/menu-icon.png';
 import tortoise from '../images/tortoise.png';
 import Navigation from './Navigation.js';
+import { HeaderStyled } from '../styling/headerStyles.js';
 
 
 const Header = () => {
@@ -17,12 +18,12 @@ const Header = () => {
     const toggle = () => setOpen(!dropdownOpen);
 
     return (
-        <div>
+        <HeaderStyled>
             <span className="header-left">
                 <img src={tortoise} alt='logo' />
             </span>
             <span className="header-right">
-                <Link to='/login'>{user.username.length ? 'Log Out': 'Log In'}</Link>
+                <Link to='/login' className='login'>{user.username.length ? 'Log Out': 'Log In'}</Link>
                 <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
                     <DropdownToggle caret>
                         <img src={menu} alt='menu' />
@@ -33,10 +34,9 @@ const Header = () => {
                         </DropdownItem>
                     </DropdownMenu>
                 </ButtonDropdown>
-                
             </span>
             
-        </div>
+        </HeaderStyled>
     )
 }
 
