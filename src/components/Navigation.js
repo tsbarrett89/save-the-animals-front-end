@@ -8,9 +8,9 @@ const Navigation = () => {
 
     return (
         <nav>
-            <Link>Home</Link>
-            <Link>{user.username.length ? user.username: 'Dashboard'}</Link>
-            <Link>Campaigns</Link>
+            <Link to='/'>Home</Link>
+            <Link to='/dashboard'>{user.username.length ? user.username: 'Dashboard'}</Link>
+            <Link to='/campaigns'>Campaigns</Link>
         </nav>
     )
 }
