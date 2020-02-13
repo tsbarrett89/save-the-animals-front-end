@@ -1,15 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 import { CredentialContext } from '../contexts/CredentialsContext';
 
 import menu from '../images/menu-icon.png';
 import tortoise from '../images/tortoise.png';
+import Navigation from './Navigation.js';
 
 
 const Header = () => {
     const { user } = useContext(CredentialContext)
+    const [dropdownOpen, setOpen] = useState(false);
 
+
+    const toggle = () => setOpen(!dropdownOpen);
 
     return (
         <div>
@@ -18,7 +23,17 @@ const Header = () => {
             </span>
             <span className="header-right">
                 <Link to='/login'>{user.username.length ? 'Log Out': 'Log In'}</Link>
-            <img src={menu} alt='menu' />
+                <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+                    <DropdownToggle caret>
+                        <img src={menu} alt='menu' />
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem>
+                            <Navigation />
+                        </DropdownItem>
+                    </DropdownMenu>
+                </ButtonDropdown>
+                
             </span>
             
         </div>
