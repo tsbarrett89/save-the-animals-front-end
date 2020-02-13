@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
@@ -9,9 +9,6 @@ import { CredentialContext } from '../contexts/CredentialsContext'
 
 const Login = (props) => {
     const { estUser } = useContext(CredentialContext)
-    // const [creds, setCreds] = useState({})
-
-
 
     return (
         <div>
@@ -78,6 +75,7 @@ const Login = (props) => {
                             <p className='error'>{errors.username}</p>
                         )}
                         <button type='submit'>Log in</button>
+                        <p>Not yet a user? <Link to='/register'>Register Here</Link></p>
                     </Form>
                 )}}
 
