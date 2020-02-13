@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 import { CredentialContext } from '../contexts/CredentialsContext'
 
 
-const Login = () => {
+const Login = (props) => {
     const { estUser } = useContext(CredentialContext)
     // const [creds, setCreds] = useState({})
 
@@ -27,7 +27,13 @@ const Login = () => {
                         .then(res => {
                             console.log(res.data)
                             localStorage.setItem('token', res.data.access_token);
-                            props.history.push('/dashboard')
+                            const currentUser = {
+                                username: values.username,
+                                user_id: res.data.id
+                            }
+                            console.log(currentUser)
+                            estUser(currentUser)
+                            // props.history.push('/dashboard')
                         })
                         .catch(error => {
                             console.log(error)
@@ -49,7 +55,7 @@ const Login = () => {
                         errors,
                         handleSubmit
                     } = props
-                }}
+                
 
                 return (
                     <Form onSubmit={handleSubmit}>
@@ -71,9 +77,9 @@ const Login = () => {
                         {touched.password && errors.password && (
                             <p className='error'>{errors.username}</p>
                         )}
-
+                        <button type='submit'>Log in</button>
                     </Form>
-                )
+                )}}
 
 
             </Formik>
