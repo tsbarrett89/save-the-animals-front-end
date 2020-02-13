@@ -6,6 +6,7 @@ import { CredentialContext } from './contexts/CredentialsContext';
 
 import Header from './components/Header.js';
 import Login from './components/Login.js';
+import Register from './components/Register.js';
 import Navigation from './components/Navigation.js';
 import CampaignList from './components/campaigns/CampaignList';
 
@@ -27,6 +28,7 @@ function App() {
         <Header />
         <Navigation />
         <Login />
+        <Register />
         <CampaignList />
       </CredentialContext.Provider>
     </div>
