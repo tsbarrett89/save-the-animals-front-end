@@ -26,5 +26,9 @@ export const HeaderStyled = styled.div `
             right: 0;
             background-color: #6c757d;
         }
+
+        .dropdown-item:hover {
+            background-color: #6c757d
+        }
     }
 `
