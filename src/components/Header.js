@@ -28,7 +28,7 @@ const Header = () => {
                     <DropdownToggle caret>
                         <img src={menu} alt='menu' />
                     </DropdownToggle>
-                    <DropdownMenu>
+                    <DropdownMenu className='dropdown-menu-right'>
                         <DropdownItem>
                             <Navigation />
                         </DropdownItem>

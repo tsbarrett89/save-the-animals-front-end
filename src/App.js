@@ -28,7 +28,6 @@ function App() {
     <div>
       <CredentialContext.Provider value={{ user, estUser}}>
         <Header />
-        <Navigation />
 
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />

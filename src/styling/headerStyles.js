@@ -21,5 +21,10 @@ export const HeaderStyled = styled.div `
             color: black;
             margin-right: 20px;
         }
+
+        .dropdown-menu-right {
+            right: 0;
+            background-color: #6c757d;
+        }
     }
 `
