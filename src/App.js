@@ -3,6 +3,7 @@ import './App.css';
 import { Route } from 'react-router';
 
 import { CredentialContext } from './contexts/CredentialsContext';
+import PrivateRoute from './utils/PrivateRoute.js';
 
 import Header from './components/Header.js';
 import Login from './components/Login.js';
@@ -27,9 +28,10 @@ function App() {
       <CredentialContext.Provider value={{ user, estUser}}>
         <Header />
         <Navigation />
-        <Login />
-        <Register />
-        <CampaignList />
+
+        <Route path='/login' component={Login} />
+        <Route path='/regiser' component={Register} />
+        <Route path='/campaigns' component={CampaignList} />
       </CredentialContext.Provider>
     </div>
   );
