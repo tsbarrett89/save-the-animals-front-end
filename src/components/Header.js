@@ -10,12 +10,20 @@ import Navigation from './Navigation.js';
 import { HeaderStyled } from '../styling/headerStyles.js';
 
 
-const Header = () => {
-    const { user } = useContext(CredentialContext)
+const Header = (props) => {
+    const { user, estUser } = useContext(CredentialContext)
     const [dropdownOpen, setOpen] = useState(false);
-
+    const clearUser = {
+        username: '',
+        user_id: null
+    }
 
     const toggle = () => setOpen(!dropdownOpen);
+
+    const logOut = e => {
+        estUser(clearUser);
+        localStorage.clear();
+    }
 
     return (
         <HeaderStyled>
@@ -23,7 +31,7 @@ const Header = () => {
                 <img src={tortoise} alt='logo' />
             </span>
             <span className="header-right">
-                <Link to='/login' className='login'>{user.username.length ? 'Log Out': 'Log In'}</Link>
+                <Link to='/login' className='login'>{user.username ? 'Log Out': 'Log In'}</Link>
                 <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
                     <DropdownToggle caret>
                         <img src={menu} alt='menu' />

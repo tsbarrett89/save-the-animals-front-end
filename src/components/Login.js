@@ -30,7 +30,7 @@ const Login = (props) => {
                             }
                             console.log(currentUser)
                             estUser(currentUser)
-                            // props.history.push('/dashboard')
+                            props.history.push('/dashboard')
                         })
                         .catch(error => {
                             console.log(error)
