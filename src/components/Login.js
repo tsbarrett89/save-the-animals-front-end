@@ -23,7 +23,7 @@ const Login = (props) => {
                         .post(`https://save-the-animals-backend.herokuapp.com/api/users/login`, values)
                         .then(res => {
                             console.log(res.data)
-                            localStorage.setItem('token', res.data.access_token);
+                            localStorage.setItem('token', res.data.token);
                             const currentUser = {
                                 username: values.username,
                                 user_id: res.data.id
