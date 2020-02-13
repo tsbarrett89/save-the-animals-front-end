@@ -4,7 +4,8 @@ import { Route } from 'react-router';
 
 import { CredentialContext } from './contexts/CredentialsContext';
 
-import Header from './components/Header.js'
+import Header from './components/Header.js';
+import Login from './components/Login.js';
 import Navigation from './components/Navigation.js';
 import CampaignList from './components/campaigns/CampaignList';
 
@@ -25,6 +26,7 @@ function App() {
       <CredentialContext.Provider value={{ user, estUser}}>
         <Header />
         <Navigation />
+        <Login />
         <CampaignList />
       </CredentialContext.Provider>
     </div>
