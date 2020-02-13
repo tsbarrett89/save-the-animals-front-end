@@ -9,6 +9,7 @@ import Header from './components/Header.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
 import Navigation from './components/Navigation.js';
+import Dashboard from './components/dashboard/Dashboard.js';
 import CampaignList from './components/campaigns/CampaignList';
 
 
@@ -30,7 +31,8 @@ function App() {
         <Navigation />
 
         <Route path='/login' component={Login} />
-        <Route path='/regiser' component={Register} />
+        <Route path='/register' component={Register} />
+        <PrivateRoute path='/dashboard' component={Dashboard} />
         <Route path='/campaigns' component={CampaignList} />
       </CredentialContext.Provider>
     </div>
