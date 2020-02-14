@@ -1,17 +1,19 @@
 import React, {useContext} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { Formik, Form, Field } from 'formik'
+import { Formik } from 'formik'
 import * as Yup from 'yup'
 
 import { CredentialContext } from '../contexts/CredentialsContext'
+
+import { LoginRegisterBody, FormStyled, FieldStyled } from '../styling/loginRegistrationStyles';
 
 
 const Login = (props) => {
     const { estUser } = useContext(CredentialContext)
 
     return (
-        <div>
+        <LoginRegisterBody>
             <Formik
                 initialValues={{
                     username: "",
@@ -55,8 +57,8 @@ const Login = (props) => {
                 
 
                 return (
-                    <Form onSubmit={handleSubmit}>
-                        <Field
+                    <FormStyled onSubmit={handleSubmit}>
+                        <FieldStyled
                             type='text'
                             name='username'
                             placeholder='username'
@@ -65,7 +67,7 @@ const Login = (props) => {
                         {touched.username && errors.username && (
                             <p className='error'>{errors.username}</p>
                         )}
-                        <Field
+                        <FieldStyled
                             type='password'
                             name='password'
                             placeholder='password'
@@ -76,12 +78,12 @@ const Login = (props) => {
                         )}
                         <button type='submit'>Log in</button>
                         <p>Not yet a user? <Link to='/register'>Register Here</Link></p>
-                    </Form>
+                    </FormStyled>
                 )}}
 
 
             </Formik>
-        </div>
+        </LoginRegisterBody>
     )
 }
 
