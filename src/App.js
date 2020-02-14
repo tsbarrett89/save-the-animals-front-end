@@ -6,6 +6,7 @@ import { CredentialContext } from './contexts/CredentialsContext';
 import PrivateRoute from './utils/PrivateRoute.js';
 
 import Header from './components/Header.js';
+import Homepage from './components/Homepage.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
 import Dashboard from './components/dashboard/Dashboard.js';
@@ -28,6 +29,7 @@ function App() {
       <CredentialContext.Provider value={{ user, estUser}}>
         <Header />
 
+        <Route exact path='/' component={Homepage} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <PrivateRoute path='/dashboard' component={Dashboard} />
