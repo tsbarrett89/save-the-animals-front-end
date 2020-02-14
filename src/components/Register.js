@@ -5,13 +5,14 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 import { CredentialContext } from '../contexts/CredentialsContext'
-import { tsPropertySignature } from '@babel/types';
+
+import { LoginRegisterBody, FormStyled, FieldStyled, ButtonStyled } from '../styling/loginRegistrationStyles';
 
 const Register = (props) => {
     const {estUser} = useContext(CredentialContext)
 
     return (
-        <div>
+        <LoginRegisterBody>
            <Formik
                 initialValues={{
                     username: '',
@@ -50,8 +51,8 @@ const Register = (props) => {
                    } = props;
 
                 return (
-                    <Form onSubmit={handleSubmit}>
-                        <Field
+                    <FormStyled onSubmit={handleSubmit}>
+                        <FieldStyled
                             type='text'
                             name='username'
                             placeholder='username'
@@ -60,7 +61,7 @@ const Register = (props) => {
                         {touched.username && errors.username && (
                             <p className="error">{errors.username}</p>
                         )}
-                        <Field
+                        <FieldStyled
                             type='password'
                             name='password'
                             value={values.password}
@@ -68,13 +69,13 @@ const Register = (props) => {
                         {touched.password && errors.password && (
                             <p className="error">{errors.password}</p>
                         )}
-                        <button type='submit'>Register</button>
+                        <ButtonStyled type='submit'>Register</ButtonStyled>
                         <p>Already registered? <Link to='/login'>Log in here.</Link></p>
-                    </Form>
+                    </FormStyled>
                 )
                }}
            </Formik>
-        </div>
+        </LoginRegisterBody>
     )
 };
 

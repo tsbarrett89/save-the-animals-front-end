@@ -6,7 +6,7 @@ import * as Yup from 'yup'
 
 import { CredentialContext } from '../contexts/CredentialsContext'
 
-import { LoginRegisterBody, FormStyled, FieldStyled } from '../styling/loginRegistrationStyles';
+import { LoginRegisterBody, FormStyled, FieldStyled, ButtonStyled } from '../styling/loginRegistrationStyles';
 
 
 const Login = (props) => {
@@ -58,6 +58,7 @@ const Login = (props) => {
 
                 return (
                     <FormStyled onSubmit={handleSubmit}>
+                        <h3>Log In</h3>
                         <FieldStyled
                             type='text'
                             name='username'
@@ -76,7 +77,7 @@ const Login = (props) => {
                         {touched.password && errors.password && (
                             <p className='error'>{errors.username}</p>
                         )}
-                        <button type='submit'>Log in</button>
+                        <ButtonStyled type='submit'>Log in</ButtonStyled>
                         <p>Not yet a user? <Link to='/register'>Register Here</Link></p>
                     </FormStyled>
                 )}}
