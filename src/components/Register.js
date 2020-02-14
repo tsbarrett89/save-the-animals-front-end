@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 
 import { CredentialContext } from '../contexts/CredentialsContext'
@@ -52,6 +52,7 @@ const Register = (props) => {
 
                 return (
                     <FormStyled onSubmit={handleSubmit}>
+                        <h3>Register</h3>
                         <FieldStyled
                             type='text'
                             name='username'
@@ -64,11 +65,13 @@ const Register = (props) => {
                         <FieldStyled
                             type='password'
                             name='password'
+                            placeholder='password'
                             value={values.password}
                         />
                         {touched.password && errors.password && (
                             <p className="error">{errors.password}</p>
                         )}
+                        <label><Field as='input' type='checkbox' />Register as an organization</label>
                         <ButtonStyled type='submit'>Register</ButtonStyled>
                         <p>Already registered? <Link to='/login'>Log in here.</Link></p>
                     </FormStyled>
