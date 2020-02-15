@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import { CredentialContext } from '../contexts/CredentialsContext'
