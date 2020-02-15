@@ -9,6 +9,7 @@ import Header from './components/Header.js';
 import Homepage from './components/Homepage.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
+import OrgRegister from './components/OrgRegister.js';
 import Dashboard from './components/dashboard/Dashboard.js';
 import CampaignList from './components/campaigns/CampaignList';
 
@@ -32,6 +33,7 @@ function App() {
         <Route exact path='/' component={Homepage} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
+        <Route path='/register-org' component={OrgRegister} />
         <PrivateRoute path='/dashboard' component={Dashboard} />
         <Route path='/campaigns' component={CampaignList} />
       </CredentialContext.Provider>

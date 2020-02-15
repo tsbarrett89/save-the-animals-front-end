@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Formik, Field } from 'formik';
@@ -10,6 +10,12 @@ import { LoginRegisterBody, FormStyled, FieldStyled, ButtonStyled } from '../sty
 
 const Register = (props) => {
     const {estUser} = useContext(CredentialContext)
+    const [orgStatus, setOrgStatus] = useState(false)
+    
+    const orgStatusSet = e => {
+        setOrgStatus(!orgStatus)
+        console.log(orgStatus)
+    }
 
     return (
         <LoginRegisterBody>
@@ -29,7 +35,7 @@ const Register = (props) => {
                             }
                             estUser(currentUser)
                             localStorage.setItem('token', res.data.token);
-                            props.history.push('/dashboard')
+                            {orgStatus ? props.history.push('/register-org'): props.history.push('/dashboard')}
                         })
                         .catch(err => console.log(err))
                 }}
@@ -71,8 +77,8 @@ const Register = (props) => {
                         {touched.password && errors.password && (
                             <p className="error">{errors.password}</p>
                         )}
-                        <label><Field as='input' type='checkbox' />Register as an organization</label>
-                        <ButtonStyled type='submit'>Register</ButtonStyled>
+                        <ButtonStyled type='submit'>Register as Supporter</ButtonStyled>
+                        <ButtonStyled onClick={orgStatusSet} type='submit'>Register as Organization</ButtonStyled>
                         <p>Already registered? <Link to='/login'>Log in here.</Link></p>
                     </FormStyled>
                 )
