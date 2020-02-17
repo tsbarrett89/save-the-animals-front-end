@@ -11,11 +11,12 @@ const OrgRegister = (props) => {
     return (
         <div>
             <Formik
-                intialValues={{
+                initialValues={{
                     orgName: '',
-                    user_id: user.user_id
+                    user_id: user.user_id[0]
                 }}
                 onSubmit={values => {
+                    console.log(values)
                     axios
                         .post('https://save-the-animals-backend.herokuapp.com/api/users/register/organizations', values)
                         .then(res => {
@@ -46,6 +47,7 @@ const OrgRegister = (props) => {
                             placeholder='Organization Name'
                             value={values.orgName}
                         />
+                        {touched.orgName && errors.username && (<p className='error'>{errors.orgName}</p>)}
                         <button type='submit'>Register Organization</button>
                     </Form>
                 )
