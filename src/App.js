@@ -10,7 +10,9 @@ import Homepage from './components/Homepage.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
 import OrgRegister from './components/OrgRegister.js';
-import Dashboard from './components/dashboard/Dashboard.js';
+import UserDashboard from './components/user-dashboard/UserDashboard.js';
+import OrgDashboard from './components/org-dashboard/OrgDashboard.js';
+import CreateNewCampaign from './components/org-dashboard/CreateNewCampaign.js';
 import CampaignList from './components/campaigns/CampaignList';
 
 
@@ -34,7 +36,9 @@ function App() {
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <Route path='/register-org' component={OrgRegister} />
-        <PrivateRoute path='/dashboard' component={Dashboard} />
+        <PrivateRoute path='/user-dashboard' component={UserDashboard} />
+        <PrivateRoute path='/org-dashboard' component={OrgDashboard} />
+        <Route path='/create-campaign' component={CreateNewCampaign} />
         <Route path='/campaigns' component={CampaignList} />
       </CredentialContext.Provider>
     </div>
