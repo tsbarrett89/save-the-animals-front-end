@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-import { CredentialContext } from '../contexts/CredentialsContext';
+import { UserCredentialContext } from '../contexts/UserCredentialsContext';
 
 import menu from '../images/menu-icon.png';
 import tortoise from '../images/tortoise.png';
@@ -11,7 +11,7 @@ import { HeaderStyled } from '../styling/headerStyles.js';
 
 
 const Header = () => {
-    const { user, estUser } = useContext(CredentialContext)
+    const { user, estUser } = useContext(UserCredentialContext)
     const [dropdownOpen, setOpen] = useState(false);
     const clearUser = {
         username: '',

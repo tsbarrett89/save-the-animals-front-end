@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CreateCampaignBody = styled.div `
+    padding-top: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,5 +30,9 @@ export const CampaignFormStyled = styled.form `
 
     label {
         margin-top: 10px;
+    }
+
+    button {
+        margin-top: 20px;
     }
 `

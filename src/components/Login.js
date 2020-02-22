@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-import { CredentialContext } from '../contexts/CredentialsContext'
+import { UserCredentialContext } from '../contexts/UserCredentialsContext'
 
 import { LoginRegisterBody, FormStyled, FieldStyled, ButtonStyled } from '../styling/loginRegistrationStyles';
 
 
 const Login = (props) => {
-    const { estUser } = useContext(CredentialContext)
+    const { estUser } = useContext(UserCredentialContext)
 
     return (
         <LoginRegisterBody>

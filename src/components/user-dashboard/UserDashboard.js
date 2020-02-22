@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 
-import { CredentialContext } from '../../contexts/CredentialsContext';
+import { UserCredentialContext } from '../../contexts/UserCredentialsContext';
 
 
 const Dashboard = () => {
-    const { user } = useContext(CredentialContext)
+    const { user } = useContext(UserCredentialContext)
 
 
     return (

@@ -1,12 +1,30 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {useForm} from 'react-hook-form';
+import axios from 'axios'
+
+import { OrgCredentialContext } from '../../contexts/OrgCredentialContext';
 
 import { CampaignFormStyled, CreateCampaignBody } from '../../styling/createCampaignStyles';
 
+
 const CreateNewCampaign = () => {
+    const { org } = useContext(OrgCredentialContext)
+    const [campaignDetails, setCampaignDetails] = useState({
+        org_id: org.org_id,
+        campaign: "",
+        location: "",
+        description: "",
+        species: "",
+        urgency_level: "",
+        funding_goal: null,
+        deadline: "",
+        image: ""
+    })
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = values => {
         console.log(values)
+        setCampaignDetails({...campaignDetails, values})
+        console.log(campaignDetails)
     }
 
     return (
@@ -56,6 +74,12 @@ const CreateNewCampaign = () => {
                     ref={register({required: true})}
                 />
                 {errors.deadline && <p>Required field</p>}
+                <label htmlFor='image'>Image</label>
+                <input
+                    type='file'
+                    name='image'
+                    onChange={uploadImage}
+                />
                 <button type='submit'>Create Campaign</button>
             </CampaignFormStyled>
         </CreateCampaignBody>

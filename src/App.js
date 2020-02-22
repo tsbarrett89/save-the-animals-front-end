@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import { Route } from 'react-router';
 
-import { CredentialContext } from './contexts/CredentialsContext';
+import { UserCredentialContext } from './contexts/UserCredentialsContext';
+import { OrgCredentialContext } from './contexts/OrgCredentialContext';
 import PrivateRoute from './utils/PrivateRoute.js';
 
 import Header from './components/Header.js';
@@ -23,13 +24,24 @@ function App() {
   }
   const [user, setUser] = useState(emptyUser)
 
+  const emptyOrg = {
+    org_name: "",
+    org_id: null
+  }
+  const [org, setOrg] = useState(emptyOrg)
+
   const estUser = user => {
     setUser(user)
   }
 
+  const estOrg = org => {
+    setOrg(org)
+  }
+
   return (
     <div>
-      <CredentialContext.Provider value={{ user, estUser}}>
+      <UserCredentialContext.Provider value={{ user, estUser}}>
+      <OrgCredentialContext.Provider value={{ org, estOrg }}>
         <Header />
 
         <Route exact path='/' component={Homepage} />
@@ -40,7 +52,8 @@ function App() {
         <PrivateRoute path='/org-dashboard' component={OrgDashboard} />
         <Route path='/create-campaign' component={CreateNewCampaign} />
         <Route path='/campaigns' component={CampaignList} />
-      </CredentialContext.Provider>
+      </OrgCredentialContext.Provider>
+      </UserCredentialContext.Provider>
     </div>
   );
 }

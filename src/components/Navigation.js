@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 
-import {CredentialContext} from '../contexts/CredentialsContext';
+import {UserCredentialContext} from '../contexts/UserCredentialsContext';
 
 import { NavStyled } from '../styling/navigationStyles.js';
 
 const Navigation = () => {
-    const {user} = useContext(CredentialContext)
+    const {user} = useContext(UserCredentialContext)
 
     return (
         <NavStyled>

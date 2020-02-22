@@ -3,10 +3,10 @@ import axios from 'axios';
 import {Formik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 
-import {CredentialContext} from '../contexts/CredentialsContext.js';
+import {UserCredentialContext} from '../contexts/UserCredentialsContext.js';
 
 const OrgRegister = (props) => {
-    const {user} = useContext(CredentialContext)
+    const {user} = useContext(UserCredentialContext)
 
     return (
         <div>
