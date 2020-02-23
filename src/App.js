@@ -11,9 +11,9 @@ import Homepage from './components/Homepage.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
 import OrgRegister from './components/OrgRegister.js';
-import UserDashboard from './components/user-dashboard/UserDashboard.js';
-import OrgDashboard from './components/org-dashboard/OrgDashboard.js';
-import CreateNewCampaign from './components/org-dashboard/CreateNewCampaign.js';
+import UserDashboard from './components/users/UserDashboard.js';
+import OrgDashboard from './components/organizations/OrgDashboard.js';
+import CreateNewCampaign from './components/organizations/CreateNewCampaign.js';
 import CampaignList from './components/campaigns/CampaignList';
 
 
