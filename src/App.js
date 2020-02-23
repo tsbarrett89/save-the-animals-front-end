@@ -18,17 +18,14 @@ import CampaignList from './components/campaigns/CampaignList';
 
 
 function App() {
-  const emptyUser = {
+  const [user, setUser] = useState({
     username: '',
     user_id: null
-  }
-  const [user, setUser] = useState(emptyUser)
-
-  const emptyOrg = {
+  })
+  const [org, setOrg] = useState({
     org_name: "",
     org_id: 1
-  }
-  const [org, setOrg] = useState(emptyOrg)
+  })
 
   const estUser = user => {
     setUser(user)
