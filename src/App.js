@@ -26,7 +26,7 @@ function App() {
 
   const emptyOrg = {
     org_name: "",
-    org_id: null
+    org_id: 1
   }
   const [org, setOrg] = useState(emptyOrg)
 

@@ -23,8 +23,29 @@ const CreateNewCampaign = () => {
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = values => {
         console.log(values)
-        setCampaignDetails({...campaignDetails, values})
         console.log(campaignDetails)
+        axios.post(`https://save-the-animals-backend.herokuapp.com/api/campaigns/createNewCampaign`, campaignDetails)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+        
+    }
+
+    const changeHandler = e => {
+        setCampaignDetails({...campaignDetails, [e.target.name]: e.target.value})
+    }
+
+    const uploadImage = e => {
+        const image = e.target.files
+        const data = new FormData()
+        data.append('file', image[0])
+        data.append('upload_preset', 'campaigns')
+        axios.post(`https://api.cloudinary.com/v1_1/dwxkvhdoj/image/upload`, data)
+            .then(res => {
+                console.log(res)
+                setCampaignDetails({...campaignDetails, image: res.data.secure_url})
+                console.log(campaignDetails)
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -35,42 +56,49 @@ const CreateNewCampaign = () => {
                 <label htmlFor='campaign'>Campaign</label>
                 <input
                     name='campaign'
+                    onChange={changeHandler}
                     ref={register({required: true})}
                 />
                 {errors.campaign && <p>Required field</p>}
                 <label htmlFor='location'>Location</label>
                 <input
                     name='location'
+                    onChange={changeHandler}
                     ref={register({required: true})}
                 />
                 {errors.location && <p>Required field</p>}
                 <label htmlFor='description'>Description</label>
                 <input
                     name='description'
+                    onChange={changeHandler}
                     ref={register({required: true})}
                 />
                 {errors.description && <p>Required field</p>}
                 <label htmlFor='species'>Species</label>
                 <input
                     name='species'
+                    onChange={changeHandler}
                     ref={register({required: true})}
                 />
                 {errors.species && <p>Required field</p>}
                 <label htmlFor='urgency_level'>Urgency Level</label>
                 <input
                     name='urgency_level'
+                    onChange={changeHandler}
                     ref={register({required: true})}
                 />
                 {errors.urgency_level && <p>Required field</p>}
                 <label htmlFor='funding_goal'>Funding Goal</label>
                 <input
                     name='funding_goal'
+                    onChange={changeHandler}
                     ref={register({required: true})}
                 />
                 {errors.funding_goal && <p>Required field</p>}
                 <label htmlFor='deadline'>Deadline</label>
                 <input
                     name='deadline'
+                    onChange={changeHandler}
                     ref={register({required: true})}
                 />
                 {errors.deadline && <p>Required field</p>}
@@ -80,6 +108,7 @@ const CreateNewCampaign = () => {
                     name='image'
                     onChange={uploadImage}
                 />
+                <span><img src={campaignDetails.image} /></span>
                 <button type='submit'>Create Campaign</button>
             </CampaignFormStyled>
         </CreateCampaignBody>
