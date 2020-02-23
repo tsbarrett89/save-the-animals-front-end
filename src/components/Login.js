@@ -1,89 +1,62 @@
-import React, {useContext} from 'react'
-import axios from 'axios'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
-import { Formik } from 'formik'
-import * as Yup from 'yup'
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import classnames from 'classnames';
 
-import { UserCredentialContext } from '../contexts/UserCredentialsContext'
+import UserLogin from './users/UserLogin';
+import OrgLogin from './organizations/OrgLogin';
 
-import { LoginRegisterBody, FormStyled, FieldStyled, ButtonStyled } from '../styling/loginRegistrationStyles';
+import { LoginRegisterBody, FormStyled } from '../styling/loginRegistrationStyles';
 
 
-const Login = (props) => {
-    const { estUser } = useContext(UserCredentialContext)
+const Login = () => {
+    const [activeTab, setActiveTab] = useState('1');
+
+    const toggle = tab => {
+        if(activeTab !== tab) setActiveTab(tab);
+    }
 
     return (
+        
         <LoginRegisterBody>
-            <Formik
-                initialValues={{
-                    username: "",
-                    password: ""
-                }}
-
-                onSubmit={(values) => {
-                    axios
-                        .post(`https://save-the-animals-backend.herokuapp.com/api/users/login`, values)
-                        .then(res => {
-                            console.log(res.data)
-                            localStorage.setItem('token', res.data.token);
-                            const currentUser = {
-                                username: values.username,
-                                user_id: res.data.id
-                            }
-                            console.log(currentUser)
-                            estUser(currentUser)
-                            props.history.push('/dashboard')
-                        })
-                        .catch(error => {
-                            console.log(error)
-                        })
-                }}
-            validationSchema={Yup.object().shape({
-                username: Yup.string()
-                    .min(6, "Username must be at least 6 characters long.")
-                    .required("We need to know who you are"),
-                password: Yup.string()
-                    .min(6, "Password must be at least 6 characters long.")
-                    .required("We need you to prove who you are.")
-            })}
-            >
-                {props => {
-                    const {
-                        values,
-                        touched,
-                        errors,
-                        handleSubmit
-                    } = props
-                
-
-                return (
-                    <FormStyled onSubmit={handleSubmit}>
-                        <h3>Log In</h3>
-                        <FieldStyled
-                            type='text'
-                            name='username'
-                            placeholder='username'
-                            value={values.username}
-                        />
-                        {touched.username && errors.username && (
-                            <p className='error'>{errors.username}</p>
-                        )}
-                        <FieldStyled
-                            type='password'
-                            name='password'
-                            placeholder='password'
-                            value={values.password}
-                        />
-                        {touched.password && errors.password && (
-                            <p className='error'>{errors.username}</p>
-                        )}
-                        <ButtonStyled type='submit'>Log in</ButtonStyled>
-                        <p>Not yet a user? <Link to='/register'>Register Here</Link></p>
-                    </FormStyled>
-                )}}
-
-
-            </Formik>
+            <FormStyled>
+                <h3>Login</h3>
+            <Nav tabs>
+                <NavItem>
+                    <NavLink
+                        className={classnames({ active: activeTab === '1' })}
+                        onClick={() => { toggle('1'); }}
+                    >
+                        Supporter
+                    </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink
+                        className={classnames({ active: activeTab === '2' })}
+                        onClick={() => { toggle('2'); }}
+                    >
+                        Organization
+                    </NavLink>
+                </NavItem>
+            </Nav>
+            <TabContent activeTab={activeTab}>
+                <TabPane tabId="1">
+                    <Row>
+                        <Col sm="12">
+                            <UserLogin />
+                        </Col>
+                    </Row>
+                </TabPane>
+                <TabPane tabId="2">
+                    <Row>
+                        <Col sm="6">
+                            <OrgLogin />
+                        </Col>
+                    </Row>
+                </TabPane>
+            </TabContent>
+            <p>Still need to sign up? <Link to='/register'>Register Here</Link></p>
+            </FormStyled>
         </LoginRegisterBody>
     )
 }
