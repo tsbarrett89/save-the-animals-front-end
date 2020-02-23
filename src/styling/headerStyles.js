@@ -7,8 +7,17 @@ export const HeaderStyled = styled.div `
 
     .header-left {
         margin-left: 20px;
+        width: 40%;
+        display: flex;
+        align-items: center;
+
         img {
             width: 70px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-left: 5%;
         }
     }
 

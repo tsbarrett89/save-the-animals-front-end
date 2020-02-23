@@ -108,7 +108,7 @@ const CreateNewCampaign = () => {
                     name='image'
                     onChange={uploadImage}
                 />
-                <span><img src={campaignDetails.image} /></span>
+                <span className='imgUpload'><img src={campaignDetails.image} /></span>
                 <button type='submit'>Create Campaign</button>
             </CampaignFormStyled>
         </CreateCampaignBody>

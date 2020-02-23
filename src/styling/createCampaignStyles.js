@@ -6,6 +6,7 @@ export const CreateCampaignBody = styled.div `
     flex-direction: column;
     align-items: center;
     background-color: #EEEEEE;
+    overflow: auto;
     height: 100vh;
 `
 
@@ -34,5 +35,14 @@ export const CampaignFormStyled = styled.form `
 
     button {
         margin-top: 20px;
+    }
+
+    .imgUpload {
+        width: 90%;
+        padding: 3%;
+
+        img {
+            width: 100%;
+        }
     }
 `

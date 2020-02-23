@@ -29,6 +29,7 @@ const Header = () => {
         <HeaderStyled>
             <span className="header-left">
                 <Link to='/'><img src={tortoise} alt='logo' /></Link>
+                <h1>Save the Animals</h1>
             </span>
             <span className="header-right">
                 <Link to='/login' className='login' onClick={logOut}>{user.username ? 'Log Out': 'Log In'}</Link>
