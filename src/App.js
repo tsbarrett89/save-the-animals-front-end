@@ -10,7 +10,6 @@ import Header from './components/Header.js';
 import Homepage from './components/Homepage.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
-import OrgRegister from './components/OrgRegister.js';
 import UserDashboard from './components/users/UserDashboard.js';
 import OrgDashboard from './components/organizations/OrgDashboard.js';
 import CreateNewCampaign from './components/organizations/CreateNewCampaign.js';
@@ -44,7 +43,6 @@ function App() {
         <Route exact path='/' component={Homepage} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
-        <Route path='/register-org' component={OrgRegister} />
         <PrivateRoute path='/user-dashboard' component={UserDashboard} />
         <PrivateRoute path='/org-dashboard' component={OrgDashboard} />
         <Route path='/create-campaign' component={CreateNewCampaign} />

@@ -61,4 +61,9 @@ export const FormStyled = styled.form `
         flex-direction: column;
         margin-top: 8%;
     }
+
+    button {
+        margin-top: 10%;
+        width: 20%;
+    }
 `
