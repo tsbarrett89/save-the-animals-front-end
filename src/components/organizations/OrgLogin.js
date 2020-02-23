@@ -10,3 +10,5 @@ const OrgLogin = () => {
         </div>
     )
 }
+
+export default OrgLogin
