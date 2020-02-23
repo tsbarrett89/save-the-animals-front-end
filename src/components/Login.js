@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import UserLogin from './users/UserLogin';
 import OrgLogin from './organizations/OrgLogin';
 
-import { LoginRegisterBody, FormStyled } from '../styling/loginRegistrationStyles';
+import { LoginRegisterBody, ContainerStyled } from '../styling/loginRegistrationStyles';
 
 
 const Login = () => {
@@ -19,8 +19,8 @@ const Login = () => {
     return (
         
         <LoginRegisterBody>
-            <FormStyled>
-                <h3>Login</h3>
+            <ContainerStyled>
+                <h3>Log In</h3>
             <Nav tabs>
                 <NavItem>
                     <NavLink
@@ -49,14 +49,14 @@ const Login = () => {
                 </TabPane>
                 <TabPane tabId="2">
                     <Row>
-                        <Col sm="6">
+                        <Col sm="12">
                             <OrgLogin />
                         </Col>
                     </Row>
                 </TabPane>
             </TabContent>
             <p>Still need to sign up? <Link to='/register'>Register Here</Link></p>
-            </FormStyled>
+            </ContainerStyled>
         </LoginRegisterBody>
     )
 }

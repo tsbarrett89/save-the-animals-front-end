@@ -10,7 +10,7 @@ export const LoginRegisterBody = styled.div `
     
 `
 
-export const FormStyled = styled.div `
+export const ContainerStyled = styled.div `
     background-color: white;
     width: 50%;
     display: flex;
@@ -46,5 +46,19 @@ export const FormStyled = styled.div `
     
     p {
         margin: 15px auto;
+    }
+`
+
+export const FormStyled = styled.form `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6%;
+
+    span {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 8%;
     }
 `
