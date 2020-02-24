@@ -6,7 +6,7 @@ import { UserCredentialContext } from '../../contexts/UserCredentialsContext';
 
 import { FormStyled } from '../../styling/loginRegistrationStyles';
 
-const UserRegister = () => {
+const UserRegister = ({props}) => {
     const {estUser} = useContext(UserCredentialContext);
     const { register, handleSubmit, errors } = useForm();
 
@@ -15,6 +15,9 @@ const UserRegister = () => {
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/users/register`, values)
         .then(res => {
             console.log(res)
+            // estUser()
+            localStorage.setItem('token', res.data.token)
+            props.history.push('/user-dashboard')
         })
         .catch(err => console.log(err))
     };

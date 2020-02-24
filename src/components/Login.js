@@ -9,13 +9,13 @@ import OrgLogin from './organizations/OrgLogin';
 import { LoginRegisterBody, ContainerStyled } from '../styling/loginRegistrationStyles';
 
 
-const Login = () => {
+const Login = (props) => {
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
         if(activeTab !== tab) setActiveTab(tab);
     }
-
+    
     return (
         
         <LoginRegisterBody>
@@ -43,14 +43,14 @@ const Login = () => {
                 <TabPane tabId="1">
                     <Row>
                         <Col sm="12">
-                            <UserLogin />
+                            <UserLogin props={props} />
                         </Col>
                     </Row>
                 </TabPane>
                 <TabPane tabId="2">
                     <Row>
                         <Col sm="12">
-                            <OrgLogin />
+                            <OrgLogin props={props} />
                         </Col>
                     </Row>
                 </TabPane>

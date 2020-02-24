@@ -9,7 +9,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h3>Welcome {user.username}</h3>
+            <h3>{user.username}</h3>
         </div>
     )
 };

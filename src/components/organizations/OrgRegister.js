@@ -6,7 +6,7 @@ import { OrgCredentialContext } from '../../contexts/OrgCredentialContext';
 
 import { FormStyled } from '../../styling/loginRegistrationStyles';
 
-const OrgRegister = () => {
+const OrgRegister = ({props}) => {
     const {estOrg} = useContext(OrgCredentialContext);
     const {register, handleSubmit, errors} = useForm();
 
@@ -14,6 +14,8 @@ const OrgRegister = () => {
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/users/register/organizations`, values)
             .then(res => {
                 console.log(res)
+                localStorage.setItem('token', res.data.token)
+                props.history.push('/org-dashboard')
             })
             .catch(err => console.log(err))
     };

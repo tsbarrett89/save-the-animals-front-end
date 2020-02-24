@@ -9,7 +9,7 @@ import OrgRegister from './organizations/OrgRegister';
 
 import { LoginRegisterBody, ContainerStyled } from '../styling/loginRegistrationStyles';
 
-const Register = () => {
+const Register = props => {
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
@@ -42,14 +42,14 @@ const Register = () => {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <UserRegister />
+                                <UserRegister props={props} />
                             </Col>
                         </Row>
                     </TabPane>
                     <TabPane tabId="2">
                         <Row>
                             <Col sm="12">
-                                <OrgRegister />
+                                <OrgRegister props={props} />
                             </Col>
                         </Row>
                     </TabPane>

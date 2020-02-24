@@ -6,7 +6,7 @@ import { UserCredentialContext } from '../../contexts/UserCredentialsContext'
 
 import { FormStyled } from '../../styling/loginRegistrationStyles'
 
-const UserLogin = (props) => {
+const UserLogin = ({props}) => {
     const {estUser} = useContext(UserCredentialContext);
     const { register, handleSubmit, errors } = useForm();
 
