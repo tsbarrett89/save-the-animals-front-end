@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 
 import { CampaignCardStyled } from '../../styling/campaignsStyled';
 
@@ -17,7 +18,7 @@ const CampaignCard = props => {
                 <p>Species: {props.campaign.species}</p>
                 <p>Urgency: {props.campaign.urgency_level}</p>
                 <p>{props.campaign.description}</p>
-                <p>Goal ${props.campaign.funding_goal}</p>
+                <NumberFormat value={props.campaign.funding_goal} displayType={'text'} thousandSeparator={true} prefix={'Goal $'} />
                 <p>{props.campaign.deadline}</p>
             </div>
             
