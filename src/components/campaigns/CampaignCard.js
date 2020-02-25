@@ -1,6 +1,8 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
 
+import Donate from '../Donate';
+
 import { CampaignCardStyled } from '../../styling/campaignsStyled';
 
 
@@ -20,6 +22,7 @@ const CampaignCard = props => {
                 <p>{props.campaign.description}</p>
                 <NumberFormat value={props.campaign.funding_goal} displayType={'text'} thousandSeparator={true} prefix={'Goal $'} />
                 <p>{props.campaign.deadline}</p>
+                <Donate />
             </div>
             
             
