@@ -8,7 +8,7 @@ export const CampaignListStyled = styled.div `
     align-items: center;
 
     h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         margin: 3% auto;
     }
 `
@@ -16,22 +16,61 @@ export const CampaignListStyled = styled.div `
 export const CampaignCardStyled = styled.div `
     width: 80%;
     display: flex;
+    flex-direction: column;
     border: 1px solid black;
     margin-bottom: 2.5%;
     padding: 1.5%;
     border-radius: 15px;
     background-color: #C2BC95;
 
-    h3 {
-        font-size: 1.5rem;
+    .top {
+        display: flex;
+        margin-top: 2.5%;
+
+        .top-left {
+            width: 40%;
+            margin-left: 2%;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        .top-right {
+            margin-left: 10%;
+
+            h3{
+                font-size: 1.6rem;
+            }
+
+            p {
+                margin-top: 20px;
+            }
+        }
     }
 
-    div {
-        width: 40%;
-        margin-right: 2%;
+    .mid {
+        margin: 3% 6%;
+    }
 
-        img{
-            width: 100%;
+    .bot {
+        display: flex;
+        flex-direction: column;
+        margin: 0 2% 3%;
+
+        .funding {
+            display: flex;
+            justify-content: space-between;
         }
+
+        p {
+            margin-top: 3%;
+        }
+    }
+`
+
+export const FundingStyled = styled.div `
+    .progress-bar {
+        background-color: #5C8A47;
     }
 `
