@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import CampaignCard from './CampaignCard'
 
+import { CampaignListStyled } from '../../styling/campaignsStyled';
+
 const CampaignList = () => {
     const [campaigns, setCampaigns] = useState([])
 
@@ -17,14 +19,15 @@ const CampaignList = () => {
 
 
     return (
-        <div>
+        <CampaignListStyled>
+            <h2>Campaigns</h2>
             {campaigns.map(campaign => (
                 <CampaignCard 
                     key={campaign.id}
                     campaign={campaign}
                 />
             ))}
-        </div>
+        </CampaignListStyled>
     )
 }
 

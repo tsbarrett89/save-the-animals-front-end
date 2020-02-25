@@ -15,7 +15,7 @@ const UserRegister = ({props}) => {
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/users/register`, values)
         .then(res => {
             console.log(res)
-            // estUser()
+            estUser({username: res.data.username, user_id: res.data.id})
             localStorage.setItem('token', res.data.token)
             props.history.push('/user-dashboard')
         })

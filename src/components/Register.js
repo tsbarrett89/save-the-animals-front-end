@@ -1,5 +1,4 @@
-import React, {useContext, useState} from 'react';
-import axios from 'axios';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames';

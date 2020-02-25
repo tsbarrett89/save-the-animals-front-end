@@ -15,7 +15,7 @@ const UserLogin = ({props}) => {
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/users/login`, values)
         .then(res => {
             console.log(res)
-            estUser({username: res.data.message, user_id: res.data.id})
+            estUser({username: res.data.username, user_id: res.data.id})
             localStorage.setItem('token', res.data.token)
             props.history.push('/user-dashboard')
         })
