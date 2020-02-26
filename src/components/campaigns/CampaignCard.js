@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
-import Donate from '../Donate';
 import FundingRecieved from './FundingRecieved.js';
 
 import { CampaignCardStyled } from '../../styling/campaignsStyled';
@@ -33,8 +33,7 @@ const CampaignCard = props => {
                 <FundingRecieved id={props.campaign.id} funding={props.campaign.funding_goal} />
                 <p>{props.campaign.deadline}</p>
             </div>
-            <button onClick={toggleDonate}>Donate</button>
-            {donateToggle ? <Donate /> : <div></div>}
+            <Link to={`/campaign/${props.campaign.id}`}>Donate</Link>
         </CampaignCardStyled>
     )
 }

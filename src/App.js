@@ -14,6 +14,7 @@ import UserDashboard from './components/users/UserDashboard.js';
 import OrgDashboard from './components/organizations/OrgDashboard.js';
 import CreateNewCampaign from './components/organizations/CreateNewCampaign.js';
 import CampaignList from './components/campaigns/CampaignList';
+import CampaignPage from './components/campaigns/CampaignPage';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <PrivateRoute path='/org-dashboard' component={OrgDashboard} />
         <Route path='/create-campaign' component={CreateNewCampaign} />
         <Route path='/campaigns' component={CampaignList} />
+        <Route path='/campaign/:id' component={CampaignPage} />
       </OrgCredentialContext.Provider>
       </UserCredentialContext.Provider>
     </div>
