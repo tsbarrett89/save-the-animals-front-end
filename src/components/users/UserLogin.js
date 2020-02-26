@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import axios from 'axios';
 
-import { UserCredentialContext } from '../../contexts/UserCredentialsContext'
+import { UserCredentialContext } from '../../contexts/UserCredentialContext'
 
 import { FormStyled } from '../../styling/loginRegistrationStyles'
 

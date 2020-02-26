@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 
-import {UserCredentialContext} from '../contexts/UserCredentialsContext';
+import {UserCredentialContext} from '../contexts/UserCredentialContext';
 
 import { NavStyled } from '../styling/navigationStyles.js';
 

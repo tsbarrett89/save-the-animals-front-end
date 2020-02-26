@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { UserCredentialContext } from '../../contexts/UserCredentialsContext';
+import { UserCredentialContext } from '../../contexts/UserCredentialContext';
 
 
 const Dashboard = () => {

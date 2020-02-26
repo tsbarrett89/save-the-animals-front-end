@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-import { UserCredentialContext } from '../contexts/UserCredentialsContext';
+import { UserCredentialContext } from '../contexts/UserCredentialContext';
 
 import menu from '../images/menu-icon.png';
 import tortoise from '../images/tortoise.png';

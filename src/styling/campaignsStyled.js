@@ -65,6 +65,10 @@ export const CampaignCardStyled = styled.div `
 `
 
 export const FundingStyled = styled.div `
+    .progress {
+        border: 1px solid #292F19;
+    }
+    
     .progress-bar {
         background-color: #5C8A47;
     }
@@ -76,11 +80,50 @@ export const FundingStyled = styled.div `
 `
 
 export const CampaignPageStyled = styled.div `
+    width: 80%;
+    margin: 5% auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     h2 {
         font-size: 1.8rem;
+    }
+
+    .cp-top {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 4% auto;
+
+        h4 {
+            font-size: 1.2rem;
+        }
+    }
+
+    .cp-mid {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .cp-mid-left{
+            width: 50%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .cp-mid-right {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+    }
+
+    .cp-bot {
+        width: 100%;
     }
 `

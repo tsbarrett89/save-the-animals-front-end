@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import { Route } from 'react-router';
 
-import { UserCredentialContext } from './contexts/UserCredentialsContext';
+import { UserCredentialContext } from './contexts/UserCredentialContext';
 import { OrgCredentialContext } from './contexts/OrgCredentialContext';
 import PrivateRoute from './utils/PrivateRoute.js';
 
