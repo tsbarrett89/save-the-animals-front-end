@@ -25,6 +25,7 @@ const FundingRecieved = ({id, funding}) => {
                 setDonationsTotal(totalDonations)
                 setPercentDonated(donationPercentage(totalDonations, funding))
             })
+            .catch(err => console.log(err))
     }, [])
 
 

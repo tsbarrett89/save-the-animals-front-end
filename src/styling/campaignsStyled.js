@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const CampaignListStyled = styled.div `
-    background-color: #EEEEEE;
-    overflow: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,10 +56,7 @@ export const CampaignCardStyled = styled.div `
         flex-direction: column;
         margin: 0 2% 3%;
 
-        .funding {
-            display: flex;
-            justify-content: space-between;
-        }
+        
 
         p {
             margin-top: 3%;
@@ -72,5 +67,20 @@ export const CampaignCardStyled = styled.div `
 export const FundingStyled = styled.div `
     .progress-bar {
         background-color: #5C8A47;
+    }
+    
+    .funding {
+            display: flex;
+            justify-content: space-between;
+    }
+`
+
+export const CampaignPageStyled = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        font-size: 1.8rem;
     }
 `

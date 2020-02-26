@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const LoginRegisterBody = styled.div `
-    background-color: #EEEEEE;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;

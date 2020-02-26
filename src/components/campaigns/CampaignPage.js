@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import FundingRecieved from './FundingRecieved';
 
+import { CampaignPageStyled } from '../../styling/campaignsStyled';
+
 const CampaignPage = props => {
     const id = props.match.params.id;
     const [campaignInfo, setCampaignInfo] = useState([]);
@@ -16,7 +18,7 @@ const CampaignPage = props => {
     }, [])
 
     return (
-        <div>
+        <CampaignPageStyled>
             <h2>{campaignInfo.campaign}</h2>
             <p>{campaignInfo.location}</p>
             <p>{campaignInfo.species}</p>
@@ -24,7 +26,7 @@ const CampaignPage = props => {
             <p>{campaignInfo.description}</p>
             <img src={campaignInfo.image} alt={campaignInfo.campaign} />
             <FundingRecieved id={id} funding={campaignInfo.funding_goal} />
-        </div>
+        </CampaignPageStyled>
     )
 }
 
