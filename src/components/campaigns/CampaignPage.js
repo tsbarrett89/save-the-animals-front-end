@@ -15,17 +15,29 @@ const CampaignPage = props => {
             setCampaignInfo(res.data)
         })
         .catch(err => console.log(err))
-    }, [])
+    }, [id])
 
     return (
         <CampaignPageStyled>
             <h2>{campaignInfo.campaign}</h2>
-            <p>{campaignInfo.location}</p>
-            <p>{campaignInfo.species}</p>
-            <p>{campaignInfo.urgency_level}</p>
-            <p>{campaignInfo.description}</p>
-            <img src={campaignInfo.image} alt={campaignInfo.campaign} />
-            <FundingRecieved id={id} funding={campaignInfo.funding_goal} />
+            <div className='cp-top'>
+                <p>{campaignInfo.location}</p>
+                <p>{campaignInfo.species}</p>
+            </div>
+            <div className='cp-mid'>
+                <div className='cp-mid-left'>
+                    <img src={campaignInfo.image} alt={campaignInfo.campaign} />
+                    
+                </div>
+                <div className='cp-mid-right'>
+                    <p>{campaignInfo.urgency_level}</p>
+                    <p>Total Donations:</p>
+                    <FundingRecieved id={id} funding={campaignInfo.funding_goal} />
+                </div>
+            </div>
+            <div className='cp-bot'>
+                <p>{campaignInfo.description}</p>
+            </div>
         </CampaignPageStyled>
     )
 }

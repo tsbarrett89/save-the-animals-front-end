@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import FundingRecieved from './FundingRecieved.js';
@@ -7,12 +7,7 @@ import { CampaignCardStyled } from '../../styling/campaignsStyled';
 
 
 const CampaignCard = props => {
-    const [donateToggle, setDonateToggle] = useState(false)
-
-    const toggleDonate = () => {
-        setDonateToggle(!donateToggle)
-    }
-
+    
     return (
         <CampaignCardStyled>
             <div className='top'>

@@ -12,7 +12,6 @@ const CampaignList = () => {
         axios
             .get(`https://save-the-animals-backend.herokuapp.com/api/campaigns`)
             .then(res => {
-                console.log(res.data);
                 setCampaigns(res.data)
             })
     }, [])
