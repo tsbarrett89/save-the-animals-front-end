@@ -125,5 +125,6 @@ export const CampaignPageStyled = styled.div `
 
     .cp-bot {
         width: 100%;
+        margin: 3% auto;
     }
 `
