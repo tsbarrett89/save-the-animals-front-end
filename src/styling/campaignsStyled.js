@@ -129,6 +129,30 @@ export const CampaignPageStyled = styled.div `
                 font-size: 1.6rem;
                 padding: 20px 30px;
             }
+
+            .Critical {
+                background-color: #FF1900;
+                font-size: 1.4rem;
+                padding: 15px 25px;
+            }
+
+            .Urgent {
+                background-color: #FF4E00;
+                font-size: 1.4rem;
+                padding: 15px 25px;
+            }
+
+            .Pressing {
+                background-color: #EB8B55;
+                font-size: 1.4rem;
+                padding: 15px 25px;
+            }
+
+            .Needed {
+                background-color: #EBE155;
+                font-size: 1.4rem;
+                padding: 15px 25px;
+            }
         }
     }
 

@@ -40,10 +40,9 @@ const CampaignPage = props => {
             <div className='cp-mid'>
                 <div className='cp-mid-left'>
                     <img src={campaignInfo.image} alt={campaignInfo.campaign} />
-                    
                 </div>
                 <div className='cp-mid-right'>
-                    <p>{campaignInfo.urgency_level}</p>
+                    <p className='urgency' className={campaignInfo.urgency_level}>{campaignInfo.urgency_level}</p>
                     <p>{totalDonations} total donations</p>
                     <FundingRecieved id={id} funding={campaignInfo.funding_goal} />
                     {toggle ? <Donate campaign_id={id} /> : <button className='donateButton' onClick={toggleDonate}>Donate Now</button>}
