@@ -65,6 +65,8 @@ export const CampaignCardStyled = styled.div `
 `
 
 export const FundingStyled = styled.div `
+    width: 100%;
+
     .progress {
         border: 1px solid #292F19;
     }

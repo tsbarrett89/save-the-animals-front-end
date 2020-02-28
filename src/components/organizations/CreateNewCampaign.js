@@ -82,11 +82,17 @@ const CreateNewCampaign = () => {
                 />
                 {errors.species && <p>Required field</p>}
                 <label htmlFor='urgency_level'>Urgency Level</label>
-                <input
+                <select
                     name='urgency_level'
                     onChange={changeHandler}
                     ref={register({required: true})}
-                />
+                >
+                    <option value=''>Select one</option>
+                    <option value='Critical'>Critical</option>
+                    <option value='Urgent'>Urgent</option>
+                    <option value='Pressing'>Pressing</option>
+                    <option value='Needed'>Needed</option>
+                </select>
                 {errors.urgency_level && <p>Required field</p>}
                 <label htmlFor='funding_goal'>Funding Goal</label>
                 <input

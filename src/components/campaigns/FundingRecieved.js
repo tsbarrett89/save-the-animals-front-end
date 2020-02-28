@@ -28,8 +28,8 @@ const FundingRecieved = ({id, funding}) => {
     return (
         <FundingStyled>
             <div className='funding'>
-                <NumberFormat value={donationsTotal} displayType={'text'} thousandSeparator={true} prefix={'Recieved $'} />
-                <NumberFormat value={funding} displayType={'text'} thousandSeparator={true} prefix={'Goal $'} />
+                <NumberFormat value={donationsTotal} displayType={'text'} thousandSeparator={true} prefix={'Donated $'} />
+                <NumberFormat value={funding} displayType={'text'} thousandSeparator={true} prefix={'of Goal $'} />
             </div>
             <Progress value={donationPercentage(donationsTotal, funding)} />
         </FundingStyled>
