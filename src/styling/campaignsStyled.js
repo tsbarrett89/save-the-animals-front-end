@@ -122,11 +122,30 @@ export const CampaignPageStyled = styled.div `
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-end;
+
+            .donateButton {
+                background-color: #409D09;
+                border-radius: 0;
+                font-size: 1.6rem;
+                padding: 20px 30px;
+            }
         }
     }
 
     .cp-bot {
         width: 100%;
         margin: 3% auto;
+    }
+`
+
+export const DonateStyled = styled.div `
+    text-align: right;
+
+    button {
+        font-size: 1.5rem;
+        border-radius: 0;
+        background-color: #409D09;
+        margin-top: 3%;
+        padding 15px 25px;
     }
 `

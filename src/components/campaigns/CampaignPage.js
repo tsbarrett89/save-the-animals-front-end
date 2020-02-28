@@ -4,11 +4,13 @@ import axios from 'axios';
 import FundingRecieved from './FundingRecieved';
 import Donate from '../Donate';
 
+
 import { CampaignPageStyled } from '../../styling/campaignsStyled';
 
 const CampaignPage = props => {
     const id = props.match.params.id;
     const [campaignInfo, setCampaignInfo] = useState([]);
+    const [totalDonations, setTotalDonations] = useState('');
     const [toggle, setToggle] = useState(false)
 
     useEffect(() => {
@@ -18,6 +20,10 @@ const CampaignPage = props => {
             setCampaignInfo(res.data)
         })
         .catch(err => console.log(err))
+
+        axios.get(`https://save-the-animals-backend.herokuapp.com/api/donations/campaigns/${id}`)
+            .then(res => setTotalDonations(res.data.length))
+            .catch(err => console.log(err))
     }, [id])
 
     const toggleDonate = () => {
@@ -38,10 +44,9 @@ const CampaignPage = props => {
                 </div>
                 <div className='cp-mid-right'>
                     <p>{campaignInfo.urgency_level}</p>
-                    <p>total donations</p>
+                    <p>{totalDonations} total donations</p>
                     <FundingRecieved id={id} funding={campaignInfo.funding_goal} />
-                    <button onClick={toggleDonate}>Donate Now</button>
-                    {toggle ? <Donate campaign_id={id} /> : <div></div>}
+                    {toggle ? <Donate campaign_id={id} /> : <button className='donateButton' onClick={toggleDonate}>Donate Now</button>}
                 </div>
             </div>
             <div className='cp-bot'>

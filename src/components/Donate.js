@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import { UserCredentialContext } from '../contexts/UserCredentialContext'
 
+import { DonateStyled } from '../styling/campaignsStyled';
+
 const Donate = ({campaign_id}) => {
     const {user} = useContext(UserCredentialContext)
     const [donationDetails, setDonationDetails] = useState({
@@ -10,6 +12,7 @@ const Donate = ({campaign_id}) => {
         campaign_id: campaign_id,
         donation_amount: 0
     })
+    const [donated, setDonated] = useState(false)
     console.log(user)
 
 
@@ -20,17 +23,27 @@ const Donate = ({campaign_id}) => {
     const sendDonation = () => {
         console.log(donationDetails)
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/donations/`, donationDetails)
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res)
+            if(res.status === 201) {
+                setDonated(true)
+            }
+        })
         .catch(err => console.log(err))
     }
     return (
         <div>
+        {!donated ?
+        <DonateStyled>
+            <label htmlFor='donation_amount'>Donation Amount $</label>
             <input
                 name='donation_amount'
                 type='number'
                 onChange={handleChange}
             />
             <button onClick={sendDonation}>Send Donation</button>
+        </DonateStyled> :
+        <div>Thank you for your donation!</div> }
         </div>
     )
 }
