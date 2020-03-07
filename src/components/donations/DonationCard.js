@@ -20,8 +20,8 @@ const DonationCard = props => {
     return (
         <DonationCardStyled>
             <p>{campaignName}</p>
-            <p>{props.donation.donation_amount}</p>
-            <Link to={`/campaign/${props.donation.campaign_id}`}>View Campaign</Link>
+            <p>${props.donation.donation_amount}</p>
+            <p><Link to={`/campaign/${props.donation.campaign_id}`}>View Campaign</Link></p>
         </DonationCardStyled>
     )
 }
