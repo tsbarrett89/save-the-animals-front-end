@@ -5,6 +5,8 @@ import { UserCredentialContext } from '../../../contexts/UserCredentialContext';
 
 import DonationCard from '../../donations/DonationCard';
 
+import { DonationListStyled, DonationCardStyled } from '../../../styling/dashboardStyled';
+
 
 const UserDonations = () => {
     const { user } = useContext(UserCredentialContext)
@@ -19,14 +21,18 @@ const UserDonations = () => {
             .catch(err => console.log(err))
     }, [])
     return (
-        <div>
-            
+        <DonationListStyled>
+            <DonationCardStyled>
+                <p>Campaign</p>
+                <p>donation amount</p>
+                <p>campaign details</p>
+            </DonationCardStyled>
             {donations.map(donation => {
                 return (
                     <DonationCard key={donation.id} donation={donation} />
                 )
             })}
-        </div>
+        </DonationListStyled>
     )
 };
 

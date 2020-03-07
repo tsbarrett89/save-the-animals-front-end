@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import { DonationCardStyled } from '../../styling/dashboardStyled';
 
 
 const DonationCard = props => {
@@ -17,11 +18,11 @@ const DonationCard = props => {
     })
 
     return (
-        <div>
+        <DonationCardStyled>
             <p>{campaignName}</p>
             <p>{props.donation.donation_amount}</p>
             <Link to={`/campaign/${props.donation.campaign_id}`}>View Campaign</Link>
-        </div>
+        </DonationCardStyled>
     )
 }
 

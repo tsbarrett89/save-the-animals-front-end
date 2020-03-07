@@ -12,11 +12,11 @@ export const HeaderStyled = styled.div `
         align-items: center;
 
         img {
-            width: 70px;
+            width: 100px;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.4rem;
             margin-left: 5%;
         }
     }
