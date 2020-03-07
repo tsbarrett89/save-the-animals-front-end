@@ -13,7 +13,7 @@ const Navigation = () => {
     return (
         <NavStyled>
             <Link to='/'>Home</Link>
-            {org.org_name.length > 0 && <Link to='/org-dashboard'>{org.org_name}</Link>}
+            {org.org_name.length > 0 && <Link to={`/org-dashboard/${org.org_id}`}>{org.org_name}</Link>}
             {user.username.length > 0 && <Link to={`/user-dashboard/${user.id}`}>{user.username}</Link>}
             <Link to='/campaigns'>Campaigns</Link>
         </NavStyled>

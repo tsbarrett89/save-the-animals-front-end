@@ -11,7 +11,7 @@ import Header from './components/Header.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
 import UserDashboard from './components/users/user-dash/UserDashboard.js';
-import OrgDashboard from './components/organizations/OrgDashboard.js';
+import OrgDashboard from './components/organizations/org-dash/OrgDashboard.js';
 import CreateNewCampaign from './components/organizations/CreateNewCampaign.js';
 import CampaignList from './components/campaigns/CampaignList';
 import CampaignPage from './components/campaigns/CampaignPage';
@@ -45,7 +45,7 @@ function App() {
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <PrivateRoute path='/user-dashboard/:id' component={UserDashboard} />
-        <PrivateRoute path='/org-dashboard' component={OrgDashboard} />
+        <PrivateRoute path='/org-dashboard/:id' component={OrgDashboard} />
         <Route path='/create-campaign' component={CreateNewCampaign} />
         <Route path='/campaigns' component={CampaignList} />
         <Route path='/campaign/:id' component={CampaignPage} />
