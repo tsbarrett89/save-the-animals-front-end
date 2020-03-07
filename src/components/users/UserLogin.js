@@ -17,7 +17,7 @@ const UserLogin = ({props}) => {
             console.log(res)
             estUser({username: res.data.username, user_id: res.data.id})
             localStorage.setItem('token', res.data.token)
-            props.history.push('/user-dashboard')
+            props.history.push(`/user-dashboard/${res.data.id}`)
         })
         .catch(err => console.log(err))
     };

@@ -7,6 +7,7 @@ import { UserCredentialContext } from '../contexts/UserCredentialContext';
 import menu from '../images/menu-icon.png';
 import tortoise from '../images/tortoise.png';
 import Navigation from './Navigation.js';
+
 import { HeaderStyled } from '../styling/headerStyles.js';
 
 

@@ -11,7 +11,7 @@ const Navigation = () => {
     return (
         <NavStyled>
             <Link to='/'>Home</Link>
-            <Link to='/dashboard'>{user.username.length ? user.username: 'Dashboard'}</Link>
+            <Link to={`/user-dashboard/${user.id}`}>{user.username.length ? user.username: 'Dashboard'}</Link>
             <Link to='/campaigns'>Campaigns</Link>
         </NavStyled>
     )

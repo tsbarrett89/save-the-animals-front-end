@@ -36,13 +36,19 @@ export const CampaignCardStyled = styled.div `
 
         .top-right {
             margin-left: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             h3{
                 font-size: 1.6rem;
             }
 
-            p {
-                margin-top: 20px;
+            button {
+                background-color: #5C8A47;
+                width: 100%;
+                height: 50px;
+                font-size: 1.5rem;
             }
         }
     }
@@ -170,6 +176,6 @@ export const DonateStyled = styled.div `
         border-radius: 0;
         background-color: #409D09;
         margin-top: 3%;
-        padding 15px 25px;
+        padding: 15px 25px;
     }
 `
