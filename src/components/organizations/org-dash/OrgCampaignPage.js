@@ -2,12 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import { OrgCampaignPageStyled, OrgCampaignDetailsStyled } from '../../../styling/dashboardStyled';
+import { OrgCampaignPageStyled } from '../../../styling/dashboardStyled';
 import OrgEditCampaign from './OrgEditCampaign';
+import OrgCampaignDetails from './OrgCampaignDetails';
 
 const OrgCampaignPage = () => {
-    const { cid } = useParams();
+    const { id, cid } = useParams();
     const [campaign, setCampaign] = useState({})
+    const [editing, setEditing] = useState(false)
+    const [campaignToEdit, setCampaignToEdit] = useState({})
 
     useEffect(() => {
         axios.get(`https://save-the-animals-backend.herokuapp.com/api/campaigns/${cid}`)
@@ -16,23 +19,19 @@ const OrgCampaignPage = () => {
                 setCampaign(res.data)
             })
             .catch(err => console.log(err))
-    }, [cid])
+    }, [cid, editing])
+
+    const edit = (campaign) => {
+        setCampaignToEdit({...campaign, org_id: id})
+        setEditing(!editing)
+    }
 
     return (
         <OrgCampaignPageStyled>
-            <OrgCampaignDetailsStyled>
-                <span className='campaign-left'>
-                    <h3>Campaign Name: {campaign.campaign}</h3>
-                    <p>Location: {campaign.location}</p>
-                    <p>Species: {campaign.species}</p>
-                    <p>Uregency level: {campaign.urgency_level}</p>
-                    <p>Deadline: {campaign.deadline}</p>
-                    <p>Description: {campaign.descritpion}</p>
-                    <p>Funding Goal: ${campaign.funding_goal}</p>
-                </span>
-                <span className='campaign-right'>Photo <img src={campaign.image} /></span>
-            </OrgCampaignDetailsStyled>
-            <OrgEditCampaign campaign={campaign} />
+            {!editing && <OrgCampaignDetails campaign={campaign} />}
+            {!editing && <button onClick={() => edit(campaign)}>Edit Campaign</button>}
+            {editing && <OrgEditCampaign campaignToEdit={campaignToEdit} setCampaignToEdit={setCampaignToEdit} setEditing={setEditing} />}
+            {editing && <button onClick={() => edit({})}>Nevermind</button>}
         </OrgCampaignPageStyled>
     )
 }
