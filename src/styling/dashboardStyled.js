@@ -53,6 +53,24 @@ export const OrgCampaignsStyled = styled.div `
     min-height: 81vh;
 `
 
+export const OrgCampaignPageStyled = styled.div `
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .campaign-left {
+        width: 40%;
+    }
+
+    .campaign-right {
+        width: 40%;
+
+        img {
+            width: 100%;
+        }
+    }
+`
+
 export const DonationListStyled = styled.div `
     width: 60%;
     display: flex;
