@@ -14,9 +14,9 @@ const OrgRegister = ({props}) => {
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/users/register/organizations`, values)
             .then(res => {
                 console.log(res)
-                estOrg({org_name: res.data.organization, org_id: res.data.id})
+                estOrg({org_name: res.data.organization, org_id: res.data.org_id})
                 localStorage.setItem('token', res.data.token)
-                props.history.push('/org-dashboard')
+                props.history.push(`/org-dashboard/${res.data.org_id}`)
             })
             .catch(err => console.log(err))
     };

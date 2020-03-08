@@ -15,9 +15,9 @@ const UserRegister = ({props}) => {
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/users/register`, values)
         .then(res => {
             console.log(res)
-            estUser({username: res.data.username, user_id: res.data.id})
+            estUser({username: res.data.username, user_id: res.data.user_id})
             localStorage.setItem('token', res.data.token)
-            props.history.push('/user-dashboard')
+            props.history.push('/campaigns')
         })
         .catch(err => console.log(err))
     };

@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+
+import { OrgEditBody, OrgEditForm, OrgEditImageStyled } from '../../../styling/orgEditCampaignStyles';
 
 const OrgEditCampaign = (props) => {
     const { cid } = useParams();
@@ -34,8 +36,8 @@ const OrgEditCampaign = (props) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <OrgEditBody>
+            <OrgEditForm onSubmit={handleSubmit}>
                 <label htmlFor='campaign'>Campaign Name</label>
                 <input
                     name='campaign'
@@ -85,10 +87,11 @@ const OrgEditCampaign = (props) => {
                     name='image'
                     onChange={uploadImage}
                 />
-                <span className='imgUpload'><img src={props.campaignToEdit.image} alt='upload' /></span>
+                
                 <button type='submit'>Submit Changes</button>
-            </form>
-        </div>
+            </OrgEditForm>
+            <OrgEditImageStyled className='imgUpload'><img src={props.campaignToEdit.image} alt='upload' /></OrgEditImageStyled>
+        </OrgEditBody>
     )
 }
 

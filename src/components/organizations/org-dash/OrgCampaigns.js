@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, useParams } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import OrgCampaignsNav from './OrgCampaignsNav';
 import OrgCampaignPage from './OrgCampaignPage';
@@ -7,7 +7,6 @@ import OrgCampaignPage from './OrgCampaignPage';
 import { OrgCampaignsStyled } from '../../../styling/dashboardStyled';
 
 const OrgCampaigns = () => {
-    const { id } = useParams();
 
     return (
         <OrgCampaignsStyled>

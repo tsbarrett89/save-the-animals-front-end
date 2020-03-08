@@ -57,15 +57,32 @@ export const OrgCampaignPageStyled = styled.div `
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+
+    button {
+        width: 30%;
+        margin-top: 20px;
+        padding: 15px;
+    }
 `
 
 export const OrgCampaignDetailsStyled = styled.div `
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 3%;
 
     .campaign-left {
         width: 40%;
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 2%;
+        }
+
+        p {
+            margin-top: 2%;
+        }
     }
 
     .campaign-right {

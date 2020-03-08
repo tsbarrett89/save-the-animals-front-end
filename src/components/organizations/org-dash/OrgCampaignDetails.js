@@ -15,7 +15,7 @@ const OrgCampaignDetails = props => {
                     <p>Description: {props.campaign.description}</p>
                     <p>Funding Goal: ${props.campaign.funding_goal}</p>
                 </span>
-                <span className='campaign-right'>Photo <img src={props.campaign.image} /></span>
+                <span className='campaign-right'>Photo <img src={props.campaign.image} alt={props.campaign.name} /></span>
             </OrgCampaignDetailsStyled>
     )
 }

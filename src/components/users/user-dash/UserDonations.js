@@ -5,7 +5,7 @@ import { UserCredentialContext } from '../../../contexts/UserCredentialContext';
 
 import DonationCard from '../../donations/DonationCard';
 
-import { DonationListStyled, DonationCardStyled, DonationCardsHeader } from '../../../styling/dashboardStyled';
+import { DonationListStyled, DonationCardsHeader } from '../../../styling/dashboardStyled';
 
 
 const UserDonations = () => {
@@ -19,7 +19,7 @@ const UserDonations = () => {
                 setDonations(res.data)
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [user.user_id])
     return (
         <DonationListStyled>
             <DonationCardsHeader className='donation-header'>

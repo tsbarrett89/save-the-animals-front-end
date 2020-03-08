@@ -1,16 +1,15 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
+import {useParams} from 'react-router-dom';
 import axios from 'axios'
-
-import { OrgCredentialContext } from '../../contexts/OrgCredentialContext';
 
 import { CampaignFormStyled, CreateCampaignBody } from '../../styling/createCampaignStyles';
 
 
 const CreateNewCampaign = () => {
-    const { org } = useContext(OrgCredentialContext)
+    const { id } = useParams();
     const [campaignDetails, setCampaignDetails] = useState({
-        org_id: org.org_id,
+        org_id: id,
         campaign: "",
         location: "",
         description: "",
@@ -21,13 +20,14 @@ const CreateNewCampaign = () => {
         image: ""
     })
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = values => {
+
+    const onSubmit = (values, e) => {
         console.log(values)
         console.log(campaignDetails)
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/campaigns/createNewCampaign`, campaignDetails)
             .then(res => console.log(res))
             .catch(err => console.log(err))
-        
+        e.target.reset()
     }
 
     const changeHandler = e => {
@@ -68,7 +68,7 @@ const CreateNewCampaign = () => {
                 />
                 {errors.location && <p>Required field</p>}
                 <label htmlFor='description'>Description</label>
-                <input
+                <textarea
                     name='description'
                     onChange={changeHandler}
                     ref={register({required: true})}
@@ -101,7 +101,7 @@ const CreateNewCampaign = () => {
                     ref={register({required: true})}
                 />
                 {errors.funding_goal && <p>Required field</p>}
-                <label htmlFor='deadline'>Deadline</label>
+                <label htmlFor='deadline'>Deadline *mm/dd/yyyy*</label>
                 <input
                     name='deadline'
                     onChange={changeHandler}

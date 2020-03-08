@@ -14,7 +14,7 @@ const OrgCampaignsNav = () => {
                 setCampaigns(res.data)
             })
             .catch(err => console.log(err))
-    }, [campaigns])
+    }, [campaigns, id])
 
     return (
         <OrgDashNavStyled >

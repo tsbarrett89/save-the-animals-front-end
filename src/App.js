@@ -24,7 +24,7 @@ function App() {
   })
   const [org, setOrg] = useState({
     org_name: "",
-    org_id: 1
+    org_id: null
   })
 
   const estUser = user => {
