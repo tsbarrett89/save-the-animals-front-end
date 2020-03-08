@@ -68,7 +68,7 @@ const OrgEditCampaign = (props) => {
                     onChange={handleChanges}
                 />
                 <label htmlFor='description'>Description</label>
-                <input
+                <textarea
                     name='description'
                     value={props.campaignToEdit.description}
                     onChange={handleChanges}
