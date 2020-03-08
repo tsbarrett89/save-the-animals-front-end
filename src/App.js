@@ -48,7 +48,7 @@ function App() {
         <PrivateRoute path='/org-dashboard/:id' component={OrgDashboard} />
         <Route path='/create-campaign' component={CreateNewCampaign} />
         <Route path='/campaigns' component={CampaignList} />
-        <Route path='/campaign/:id' component={CampaignPage} />
+        <Route path='/campaign/:cid' component={CampaignPage} />
       </OrgCredentialContext.Provider>
       </UserCredentialContext.Provider>
     </div>

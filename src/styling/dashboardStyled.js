@@ -27,6 +27,32 @@ export const DashboardNav = styled.nav `
         }
 `
 
+export const OrgDashNavStyled = styled.div `
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        background-color: #CFCFCF;
+        overflow: auto;
+
+        a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: black;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .active {
+            background-color: #ABABAB;
+            border-top: 1px solid grey;
+        }
+`
+
+export const OrgCampaignsStyled = styled.div `
+    display: flex;
+    min-height: 81vh;
+`
+
 export const DonationListStyled = styled.div `
     width: 60%;
     display: flex;

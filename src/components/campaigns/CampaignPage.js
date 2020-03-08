@@ -8,7 +8,7 @@ import Donate from '../Donate';
 import { CampaignPageStyled } from '../../styling/campaignsStyled';
 
 const CampaignPage = props => {
-    const id = props.match.params.id;
+    const id = props.match.params.cid;
     const [campaignInfo, setCampaignInfo] = useState([]);
     const [totalDonations, setTotalDonations] = useState('');
     const [toggle, setToggle] = useState(false)

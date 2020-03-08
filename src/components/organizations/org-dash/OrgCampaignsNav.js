@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import axios from 'axios';
 
+import { OrgDashNavStyled } from '../../../styling/dashboardStyled';
+
 const OrgCampaignsNav = () => {
     const [campaigns, setCampaigns] = useState([])
     const {id} = useParams();
@@ -12,16 +14,16 @@ const OrgCampaignsNav = () => {
                 setCampaigns(res.data)
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [campaigns])
 
     return (
-        <div>
+        <OrgDashNavStyled >
             {campaigns.map(campaign => {
                return (
-                    <NavLink to=''>{campaign.campaign}</NavLink>
+                    <NavLink to={`/org-dashboard/${id}/campaigns/${campaign.id}`} key={campaign.id}>{campaign.campaign}</NavLink>
                )
             })}
-        </div>
+        </OrgDashNavStyled>
     )
 }
 
