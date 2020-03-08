@@ -56,6 +56,12 @@ export const OrgCampaignsStyled = styled.div `
 export const OrgCampaignPageStyled = styled.div `
     width: 100%;
     display: flex;
+    flex-direction: column;
+`
+
+export const OrgCampaignDetailsStyled = styled.div `
+    width: 100%;
+    display: flex;
     justify-content: center;
 
     .campaign-left {

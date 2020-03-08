@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import { OrgCampaignPageStyled } from '../../../styling/dashboardStyled';
+import { OrgCampaignPageStyled, OrgCampaignDetailsStyled } from '../../../styling/dashboardStyled';
+import OrgEditCampaign from './OrgEditCampaign';
 
 const OrgCampaignPage = () => {
     const { cid } = useParams();
@@ -19,17 +20,19 @@ const OrgCampaignPage = () => {
 
     return (
         <OrgCampaignPageStyled>
-            <span className='campaign-left'>
-                <h3>Campaign Name: {campaign.campaign}</h3>
-                <p>Location: {campaign.location}</p>
-                <p>Species: {campaign.species}</p>
-                <p>Uregency level: {campaign.urgency_level}</p>
-                <p>Deadline: {campaign.deadline}</p>
-                <p>Description: {campaign.descritpion}</p>
-                <p>Funding Goal: ${campaign.funding_goal}</p>
-            </span>
-            
-            <span className='campaign-right'>Photo <img src={campaign.image} /></span>
+            <OrgCampaignDetailsStyled>
+                <span className='campaign-left'>
+                    <h3>Campaign Name: {campaign.campaign}</h3>
+                    <p>Location: {campaign.location}</p>
+                    <p>Species: {campaign.species}</p>
+                    <p>Uregency level: {campaign.urgency_level}</p>
+                    <p>Deadline: {campaign.deadline}</p>
+                    <p>Description: {campaign.descritpion}</p>
+                    <p>Funding Goal: ${campaign.funding_goal}</p>
+                </span>
+                <span className='campaign-right'>Photo <img src={campaign.image} /></span>
+            </OrgCampaignDetailsStyled>
+            <OrgEditCampaign campaign={campaign} />
         </OrgCampaignPageStyled>
     )
 }
