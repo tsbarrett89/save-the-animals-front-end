@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import FundingRecieved from './FundingRecieved';
 import Donate from '../Donate';
-import SaveButton from './SaveCampaign';
+import SaveButton from './SaveCampaignButton';
 
 
 import { CampaignPageStyled } from '../../styling/campaignsStyled';

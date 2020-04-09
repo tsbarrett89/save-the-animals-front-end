@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import FundingRecieved from './FundingRecieved.js';
-import OrgName from '../organizations/OrgName.js';
 
 import { CampaignCardStyled } from '../../styling/campaignsStyled';
 
@@ -18,7 +17,6 @@ const CampaignCard = props => {
                 <div className='top-right'>
                     <span>
                         <h3>{props.campaign.campaign}</h3>
-                        <OrgName org_id={props.campaign.org_id} />
                     </span>
                     <p>Location: {props.campaign.location}</p>
                     <p>Species: {props.campaign.species}</p>
