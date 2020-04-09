@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import FundingRecieved from './FundingRecieved';
 import Donate from '../Donate';
+import SaveButton from './SaveCampaign';
 
 
 import { CampaignPageStyled } from '../../styling/campaignsStyled';
@@ -45,6 +46,7 @@ const CampaignPage = props => {
                     <p className='urgency' className={campaignInfo.urgency_level}>{campaignInfo.urgency_level}</p>
                     <p>{totalDonations} total donations</p>
                     <FundingRecieved id={id} funding={campaignInfo.funding_goal} />
+                    <SaveButton campaign_id={id} />
                     {toggle ? <Donate campaign_id={id} /> : <button className='donateButton' onClick={toggleDonate}>Donate Now</button>}
                 </div>
             </div>
