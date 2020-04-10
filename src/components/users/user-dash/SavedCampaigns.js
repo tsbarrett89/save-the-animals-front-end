@@ -21,6 +21,7 @@ const SavedCampaigns = () => {
 
     return (
         <div>
+            <h3>My Saved Campaigns</h3>
             {loading && <p>Loading</p>}
             {savedCampaigns.length === 0 ? <p>Go save some campaigns (once we get that feature built).</p> :
             savedCampaigns.map(campaign => 
