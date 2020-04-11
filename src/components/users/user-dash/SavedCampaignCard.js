@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 const SavedCampaignCard = props => {
     const [campaignDetails, setCampaignDetails] = useState({})
+    console.log(props.rowStyle)
 
     useEffect(() => {
         axios
@@ -12,7 +13,7 @@ const SavedCampaignCard = props => {
             .catch(err => console.log(err))
     }, [])
     return (
-        <div>
+        <div className={props.rowStyle}>
             <p>{campaignDetails.campaign}</p>
             <Link to={`/campaign/${props.campaign.campaign_id}`}>details</Link>
         </div>

@@ -25,13 +25,20 @@ const SavedCampaigns = () => {
         <SavedCampaignsStyled>
             <h3>My Saved Campaigns</h3>
             {loading && <p>Loading</p>}
-            {savedCampaigns.length === 0 ? <p>Go save some campaigns (once we get that feature built).</p> :
-            Array.from(savedCampaigns).map(campaign => 
-                <SavedCampaignCard
-                    key={campaign.id}
-                    campaign={campaign}
-                />
-            )}
+            {savedCampaigns.length === 0 ? <p>Go save some campaigns.</p> :
+            savedCampaigns.map((campaign, index) => {
+                let rowStyle = 'even'
+                if(index%2 !== 1){
+                    rowStyle = 'odd'
+                }
+                return (
+                    <SavedCampaignCard
+                        key={campaign.id}
+                        rowStyle={rowStyle}
+                        campaign={campaign}
+                    />
+                )
+            })}
         </SavedCampaignsStyled>
     )
 }
