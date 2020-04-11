@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const SavedCampaignCard = props => {
     const [campaignDetails, setCampaignDetails] = useState({})
@@ -11,7 +12,10 @@ const SavedCampaignCard = props => {
             .catch(err => console.log(err))
     }, [])
     return (
-        <div>{campaignDetails.campaign}</div>
+        <div>
+            <p>{campaignDetails.campaign}</p>
+            <Link to={`/campaign/${props.campaign.campaign_id}`}>details</Link>
+        </div>
     )
 }
 

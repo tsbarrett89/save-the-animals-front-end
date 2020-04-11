@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import SavedCampaignCard from './SavedCampaignCard';
 
+import { SavedCampaignsStyled } from '../../../styling/savedCampaignsStyles'
+
 const SavedCampaigns = () => {
     const { id } = useParams()
     const [savedCampaigns, setSavedCampaigns] = useState([])
@@ -20,17 +22,17 @@ const SavedCampaigns = () => {
     }, [])
 
     return (
-        <div>
+        <SavedCampaignsStyled>
             <h3>My Saved Campaigns</h3>
             {loading && <p>Loading</p>}
             {savedCampaigns.length === 0 ? <p>Go save some campaigns (once we get that feature built).</p> :
-            savedCampaigns.map(campaign => 
+            Array.from(savedCampaigns).map(campaign => 
                 <SavedCampaignCard
                     key={campaign.id}
                     campaign={campaign}
                 />
             )}
-        </div>
+        </SavedCampaignsStyled>
     )
 }
 
