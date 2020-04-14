@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import axios from 'axios';
 
@@ -9,6 +9,7 @@ import { FormStyled } from '../../styling/loginRegistrationStyles';
 const OrgRegister = ({props}) => {
     const {estOrg} = useContext(OrgCredentialContext);
     const {register, handleSubmit, errors} = useForm();
+    const [errorStatus, setErrorStatus] = useState(null);
 
     const onSubmit = values => {
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/users/register/organizations`, values)
@@ -18,7 +19,10 @@ const OrgRegister = ({props}) => {
                 localStorage.setItem('token', res.data.token)
                 props.history.push(`/org-dashboard/${res.data.org_id}`)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err.response)
+                setErrorStatus(err.response.status)
+            })
     };
 
     return (
@@ -31,6 +35,7 @@ const OrgRegister = ({props}) => {
                         ref={register({required: true})}
                     />
                     {errors.org_name && <p>Required</p>}
+                    {errorStatus === 409 && <p>Organization name already exists</p>}
                 </span>
                 <span>
                     <label htmlFor='location'>Location</label>
