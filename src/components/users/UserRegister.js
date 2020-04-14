@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {useForm} from 'react-hook-form';
+import React, { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 import { UserCredentialContext } from '../../contexts/UserCredentialContext';
@@ -9,6 +9,7 @@ import { FormStyled } from '../../styling/loginRegistrationStyles';
 const UserRegister = ({props}) => {
     const {estUser} = useContext(UserCredentialContext);
     const { register, handleSubmit, errors } = useForm();
+    const [errorStatus, setErrorStatus] = useState(null)
 
     const onSubmit = values => {
         console.log(values)
@@ -19,7 +20,10 @@ const UserRegister = ({props}) => {
             localStorage.setItem('token', res.data.token)
             props.history.push('/campaigns')
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err.response)
+            setErrorStatus(err.response.status)
+        })
     };
 
     return (
@@ -32,6 +36,7 @@ const UserRegister = ({props}) => {
                         ref={register({required: true})}
                     />
                     {errors.username && <p>Required</p>}
+                    {errorStatus === 409 && <p>Username already exists</p>}
                 </span>
                 <span>
                     <label htmlFor='password'>Password</label>
