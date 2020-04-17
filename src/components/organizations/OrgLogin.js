@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import axios from 'axios';
 
@@ -9,6 +9,7 @@ import { FormStyled } from '../../styling/loginRegistrationStyles'
 const OrgLogin = ({props}) => {
     const {estOrg} = useContext(OrgCredentialContext);
     const { register, handleSubmit, errors } = useForm();
+    const [errorStatus, setErrorStatus] = useState(null)
 
     const onSubmit = values => {
         console.log(values)
@@ -19,12 +20,16 @@ const OrgLogin = ({props}) => {
                 localStorage.setItem('token', res.data.token)
                 props.history.push(`/org-dashboard/${res.data.id}`)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err.response)
+                setErrorStatus(err.response.status)
+            })
     };
 
     return (
         <div>
             <FormStyled onSubmit={handleSubmit(onSubmit)}>
+                {errorStatus === 401 && <p>Incorrect organization name or password.</p>}
                 <span>
                     <label htmlFor='org_name'>Organization</label>
                     <input
