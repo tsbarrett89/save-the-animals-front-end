@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useState, useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import axios from 'axios';
 
@@ -9,6 +9,7 @@ import { FormStyled } from '../../styling/loginRegistrationStyles'
 const UserLogin = ({props}) => {
     const {estUser} = useContext(UserCredentialContext);
     const { register, handleSubmit, errors } = useForm();
+    const [errorStatus, setErrorStatus] = useState(null)
 
     const onSubmit = values => {
         console.log(values)
@@ -19,12 +20,13 @@ const UserLogin = ({props}) => {
             localStorage.setItem('token', res.data.token)
             props.history.push(`/campaigns`)
         })
-        .catch(err => console.log(err))
+        .catch(err => setErrorStatus(err.response.status))
     };
 
     return (
         <div>
             <FormStyled onSubmit={handleSubmit(onSubmit)}>
+                {errorStatus === 401 && <p>Incorrect username or password</p>}
                 <span>
                     <label htmlFor='username'>Username</label>
                     <input
