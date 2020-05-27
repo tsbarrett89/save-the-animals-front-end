@@ -15,10 +15,9 @@ const OrgCampaignPage = () => {
     useEffect(() => {
         axios.get(`https://save-the-animals-backend.herokuapp.com/api/campaigns/${cid}`)
             .then(res => {
-                console.log(res.data)
                 setCampaign(res.data)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     }, [cid, editing])
 
     const edit = (campaign) => {

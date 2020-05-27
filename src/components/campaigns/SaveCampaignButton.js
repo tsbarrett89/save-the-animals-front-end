@@ -13,7 +13,6 @@ const SaveButton = props => {
 
     const saveCampaign = e => {
         e.preventDefault()
-        console.log({ campaign })
         axios
             .post(`https://save-the-animals-backend.herokuapp.com/api/users/saved-campaigns`, campaign)
             .then(res => console.log(res))

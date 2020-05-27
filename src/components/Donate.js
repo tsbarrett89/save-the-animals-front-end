@@ -13,7 +13,6 @@ const Donate = ({campaign_id}) => {
         donation_amount: 0
     })
     const [donated, setDonated] = useState(false)
-    console.log(user)
 
 
     const handleChange = e => {
@@ -21,15 +20,13 @@ const Donate = ({campaign_id}) => {
     }
 
     const sendDonation = () => {
-        console.log(donationDetails)
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/donations/`, donationDetails)
         .then(res => {
-            console.log(res)
             if(res.status === 201) {
                 setDonated(true)
             }
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response))
     }
     return (
         <div>

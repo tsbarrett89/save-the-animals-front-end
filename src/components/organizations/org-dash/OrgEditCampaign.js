@@ -15,10 +15,9 @@ const OrgEditCampaign = (props) => {
         e.preventDefault()
         axios.put(`https://save-the-animals-backend.herokuapp.com/api/campaigns/${cid}`, props.campaignToEdit)
             .then(res => {
-                console.log(res)
                 props.setEditing(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     }
 
     const uploadImage = e => {
@@ -28,11 +27,9 @@ const OrgEditCampaign = (props) => {
         data.append('upload_preset', 'campaigns')
         axios.post(`https://api.cloudinary.com/v1_1/dwxkvhdoj/image/upload`, data)
             .then(res => {
-                console.log(res)
                 props.setCampaignToEdit({...props.campaignToEdit, image: res.data.secure_url})
-                console.log(props.campaignToEdit)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     }
 
     return (

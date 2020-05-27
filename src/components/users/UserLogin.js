@@ -12,10 +12,8 @@ const UserLogin = ({props}) => {
     const [errorStatus, setErrorStatus] = useState(null)
 
     const onSubmit = values => {
-        console.log(values)
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/users/login`, values)
         .then(res => {
-            console.log(res)
             estUser({username: res.data.username, user_id: res.data.id})
             localStorage.setItem('token', res.data.token)
             props.history.push(`/campaigns`)

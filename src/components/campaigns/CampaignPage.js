@@ -17,14 +17,13 @@ const CampaignPage = props => {
     useEffect(() => {
         axios.get(`https://save-the-animals-backend.herokuapp.com/api/campaigns/${id}`)
         .then(res => {
-            console.log(res.data)
             setCampaignInfo(res.data)
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response))
 
         axios.get(`https://save-the-animals-backend.herokuapp.com/api/donations/campaigns/${id}`)
             .then(res => setTotalDonations(res.data.length))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     }, [id])
 
     const toggleDonate = () => {

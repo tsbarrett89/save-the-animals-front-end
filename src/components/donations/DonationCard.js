@@ -11,10 +11,9 @@ const DonationCard = props => {
     useEffect(() => {
         axios.get(`https://save-the-animals-backend.herokuapp.com/api/campaigns/${props.donation.campaign_id}`)
             .then(res => {
-                console.log(res.data)
                 setCampaignName(res.data.campaign)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     })
 
     return (

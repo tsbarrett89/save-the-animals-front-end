@@ -18,7 +18,7 @@ const SavedCampaigns = () => {
                 setSavedCampaigns(res.data)
                 setLoading(!loading)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     }, [])
 
     return (

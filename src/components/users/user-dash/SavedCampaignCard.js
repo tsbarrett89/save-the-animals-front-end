@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 
 const SavedCampaignCard = props => {
     const [campaignDetails, setCampaignDetails] = useState({})
-    console.log(props.rowStyle)
+
 
     useEffect(() => {
         axios
             .get(`https://save-the-animals-backend.herokuapp.com/api/campaigns/${props.campaign.campaign_id}`)
             .then(res => setCampaignDetails(res.data))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     }, [])
     return (
         <div className={props.rowStyle}>

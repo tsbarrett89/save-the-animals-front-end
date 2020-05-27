@@ -8,10 +8,9 @@ const OrgName = ({org_id}) => {
     useEffect(() => {
         axios.get(`https://save-the-animals-backend.herokuapp.com/api/users/organizations/${org_id}`)
             .then (res => {
-                console.log(res.data)
                 setOrgName(res.data)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     }, [org_id])
 
     return (

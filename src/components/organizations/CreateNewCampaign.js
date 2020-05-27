@@ -22,11 +22,9 @@ const CreateNewCampaign = () => {
     const { register, handleSubmit, errors } = useForm();
 
     const onSubmit = (values, e) => {
-        console.log(values)
-        console.log(campaignDetails)
         axios.post(`https://save-the-animals-backend.herokuapp.com/api/campaigns/createNewCampaign`, campaignDetails)
             .then(res => console.log(res))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
         e.target.reset()
     }
 
@@ -41,11 +39,9 @@ const CreateNewCampaign = () => {
         data.append('upload_preset', 'campaigns')
         axios.post(`https://api.cloudinary.com/v1_1/dwxkvhdoj/image/upload`, data)
             .then(res => {
-                console.log(res)
                 setCampaignDetails({...campaignDetails, image: res.data.secure_url})
-                console.log(campaignDetails)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     }
 
     return (
